@@ -1,0 +1,12 @@
+[Unit]
+Description=Workset profile picker (post-login)
+After=graphical-session.target
+ConditionPathExists=%h/.config/workset/config.yaml
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/workset-picker --login
+Environment=DISPLAY=:0
+
+[Install]
+WantedBy=graphical-session.target

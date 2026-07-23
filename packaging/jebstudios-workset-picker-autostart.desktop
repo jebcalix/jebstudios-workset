@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Workset (login)
+Comment=Selector de perfil al iniciar sesión
+Exec=workset-picker --login
+Icon=preferences-desktop-workspaces
+Terminal=false
+Categories=Settings;Utility;
+StartupNotify=false
+NoDisplay=true
+X-GNOME-Autostart-enabled=true

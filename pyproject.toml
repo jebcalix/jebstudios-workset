@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jebstudios-workset"
+version = "1.1.0"
+description = "Multi-DE desktop workset profiles for Arch Linux"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.11"
+authors = [{ name = "JebStudios" }]
+keywords = ["workset", "workspace", "arch", "hyprland", "gnome", "kde"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: X11 Applications",
+  "Intended Audience :: End Users/Desktop",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: POSIX :: Linux",
+  "Programming Language :: Python :: 3.11",
+  "Topic :: Desktop Environment",
+]
+dependencies = [
+  "pyyaml>=6.0",
+  "pydantic>=2.0",
+]
+
+[project.optional-dependencies]
+gui = ["PyGObject>=3.46"]
+dev = [
+  "pytest>=8.0",
+  "pytest-cov>=5.0",
+  "ruff>=0.4",
+]
+
+[project.scripts]
+workset = "workset.cli.main:main"
+workset-picker = "workset.ui.picker:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

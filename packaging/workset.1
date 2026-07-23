@@ -1,0 +1,45 @@
+.TH WORKSET 1 "Jul 2026" "jebstudios-workset 1.1.0" "User Commands"
+.SH NAME
+workset \- perfiles de escritorio multi-DE
+.SH SYNOPSIS
+.B workset
+[\fIOPTION\fR] \fICOMMAND\fR [\fIARGS\fR]
+.SH DESCRIPTION
+Aplica perfiles YAML que lanzan aplicaciones y restauran layout de ventanas
+en Hyprland, Sway, i3, KDE, GNOME y X11.
+.SH COMMANDS
+.TP
+.B list
+Lista perfiles en ~/.config/workset/profiles/
+.TP
+.B apply \fIID\fR
+Aplica un perfil. Opción \fB--dry-run\fR simula sin lanzar apps.
+.TP
+.B validate [\fIID\fR]
+Valida YAML de perfiles.
+.TP
+.B doctor
+Diagnóstico del entorno y backend detectado.
+.TP
+.B capture --name \fINOMBRE\fR
+Captura ventanas abiertas como nuevo perfil.
+.TP
+.B duplicate \fISOURCE\fR \fINEW_ID\fR
+Duplica un perfil existente.
+.TP
+.B picker
+Abre la GUI gráfica (GTK4) o menú terminal.
+.TP
+.B default \fIID\fR
+Establece perfil por defecto.
+.TP
+.B edit \fIID\fR
+Edita perfil en $EDITOR.
+.SH FILES
+~/.config/workset/profiles/*.yaml
+.br
+~/.config/workset/config.yaml
+.br
+~/.local/state/workset/last-run.log
+.SH SEE ALSO
+.BR workset-picker (1)

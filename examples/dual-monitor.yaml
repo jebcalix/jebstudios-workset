@@ -1,0 +1,21 @@
+# Perfil con reglas condicionales (fase 5)
+
+```yaml
+version: 1
+name: Dual Monitor Dev
+description: Solo si hay 2+ monitores
+
+conditions:
+  min_monitors: 2
+  desktop: GNOME
+
+apps:
+  - exec: [cursor]
+    monitor: primary
+    workspace: 1
+  - exec: [vivaldi-stable]
+    monitor: left
+    workspace: 1
+```
+
+Si las condiciones no se cumplen, `workset apply` falla con mensaje claro.

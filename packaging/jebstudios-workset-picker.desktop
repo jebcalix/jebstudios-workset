@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Workset
+Comment=Gestiona perfiles de escritorio multi-DE
+Exec=workset-picker
+Icon=preferences-desktop-workspaces
+Terminal=false
+Categories=Settings;Utility;
+StartupNotify=true
+Keywords=workset;workspace;profile;desktop;

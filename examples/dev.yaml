@@ -1,0 +1,36 @@
+# Perfil de ejemplo — Desarrollo
+# Copiar a: ~/.config/workset/profiles/dev.yaml
+# Ajusta las rutas de exec a tu máquina (deben ser absolutas; ~ no se expande).
+
+version: 1
+name: Desarrollo
+description: Editor, terminal y navegador para coding local
+
+apps:
+  - id: editor
+    exec: [cursor]
+    monitor: primary
+    workspace: 1
+    state: maximized
+    match:
+      wm_class: Cursor
+    delay_ms: 0
+    timeout_ms: 20000
+
+  - id: terminal
+    exec: [gnome-terminal]
+    monitor: primary
+    workspace: 2
+    state: normal
+    match:
+      wm_class: gnome-terminal
+    delay_ms: 500
+
+  - id: browser
+    exec: [firefox, --new-window]
+    monitor: left
+    workspace: 1
+    state: normal
+    match:
+      wm_class: firefox
+    delay_ms: 800
