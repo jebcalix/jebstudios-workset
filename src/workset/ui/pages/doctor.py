@@ -39,6 +39,7 @@ class DoctorPage(Gtk.Box):
         status.add(self._row("Backend", str(info.get("backend", "?"))))
         status.add(self._row("Placement", "solo launch" if backend.launch_only else "completo"))
         status.add(self._row("Escritorio", str(info.get("desktop") or "—")))
+        status.add(self._row("Familia DE", str(info.get("desktop_family") or "—")))
         status.add(self._row("Sesión", str(info.get("session") or "—")))
 
         if backend.launch_only:
@@ -53,6 +54,18 @@ class DoctorPage(Gtk.Box):
                 )
             )
         page.add(status)
+
+        tray = Adw.PreferencesGroup(title="Bandeja")
+        tray.add(self._row("API", str(info.get("tray_api") or "no disponible")))
+        tray.add(
+            self._row(
+                "StatusNotifierWatcher",
+                "sí" if info.get("tray_watcher") else "no",
+            )
+        )
+        if info.get("tray_hint"):
+            tray.add(Adw.ActionRow(title="Consejo", subtitle=str(info["tray_hint"])))
+        page.add(tray)
 
         bins = Adw.PreferencesGroup(title="Herramientas")
         for key in ("wmctrl", "hyprctl", "swaymsg", "i3-msg", "qdbus"):

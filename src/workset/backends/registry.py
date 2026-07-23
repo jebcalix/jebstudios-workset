@@ -46,7 +46,11 @@ def detect_backend() -> Backend:
 
 
 def doctor_info() -> dict[str, str | bool]:
+    from workset.desktop_env import detect_desktop_env, tray_support
+
     b = detect_backend()
+    env = detect_desktop_env()
+    tray = tray_support()
     return {
         "backend": b.name,
         "launch_only": b.launch_only,
@@ -54,10 +58,15 @@ def doctor_info() -> dict[str, str | bool]:
         "sway": bool(os.environ.get("SWAYSOCK")),
         "i3": bool(os.environ.get("I3SOCK")),
         "desktop": os.environ.get("XDG_CURRENT_DESKTOP", ""),
+        "desktop_family": env.family,
         "session": os.environ.get("XDG_SESSION_TYPE", ""),
         "wmctrl": bool(shutil.which("wmctrl")),
         "hyprctl": bool(shutil.which("hyprctl")),
         "swaymsg": bool(shutil.which("swaymsg")),
         "i3-msg": bool(shutil.which("i3-msg")),
         "qdbus": bool(shutil.which("qdbus6") or shutil.which("qdbus")),
+        "tray_api": tray.available_api or "",
+        "tray_watcher": tray.watcher_present,
+        "tray_ready": tray.ready,
+        "tray_hint": tray.hint,
     }

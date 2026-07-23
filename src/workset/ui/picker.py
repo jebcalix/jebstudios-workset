@@ -13,7 +13,15 @@ def main(argv: list[str] | None = None) -> int:
     if login_mode:
         from workset.config.loader import load_global_config
 
-        if not load_global_config().show_picker_on_login:
+        cfg = load_global_config()
+        if cfg.show_tray_icon:
+            try:
+                from workset.ui.tray import set_tray_enabled
+
+                set_tray_enabled(True)
+            except Exception:
+                pass
+        if not cfg.show_picker_on_login:
             return 0
 
     if _gtk_available():
@@ -44,7 +52,9 @@ def _run_gtk(argv: list[str]) -> int:
     gi.require_version("Adw", "1")
 
     from workset.ui.app import WorksetApplication
+    from workset.ui.icons import ensure_user_icon_theme
 
+    ensure_user_icon_theme()
     app = WorksetApplication()
     return app.run(["workset-picker", *argv])
 

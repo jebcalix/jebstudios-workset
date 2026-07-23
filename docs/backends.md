@@ -15,11 +15,16 @@
 ## Dependencias opcionales (Arch)
 
 ```bash
-sudo pacman -S wmctrl          # X11 / XWayland
+sudo pacman -S wmctrl          # X11 / XWayland / Plasma / XFCE / Cinnamon / MATE
 # Hyprland: hyprctl incluido
 # Sway/i3: sway / i3-wm
 # Picker: python-gobject gtk4 libadwaita
+# Tray:   libayatana-appindicator
+# GNOME tray: gnome-shell-extension-appindicator
+# X11 panel tray bridge: snixembed
 ```
+
+Bandeja multi-DE: [tray.md](tray.md).
 
 ## Omarchy
 

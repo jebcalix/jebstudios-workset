@@ -21,8 +21,12 @@ class KdeBackend(Backend):
     name = "kde"
 
     def is_available(self) -> bool:
-        desktop = os.environ.get("XDG_CURRENT_DESKTOP", "").upper()
-        return "KDE" in desktop and bool(shutil.which("wmctrl") or self._qdbus_bin())
+        from workset.desktop_env import desktop_tokens
+
+        tokens = set(desktop_tokens())
+        return bool({"KDE", "PLASMA"} & tokens) and bool(
+            shutil.which("wmctrl") or self._qdbus_bin()
+        )
 
     def _qdbus_bin(self) -> str | None:
         return shutil.which("qdbus6") or shutil.which("qdbus")

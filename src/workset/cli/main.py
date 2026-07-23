@@ -81,9 +81,13 @@ def cmd_doctor(_: argparse.Namespace) -> int:
     print(f"  perfiles:    {PROFILES_DIR}")
     print(f"  config:      {GLOBAL_CONFIG_PATH}")
     for k, v in info.items():
+        if k == "tray_hint" and v:
+            continue
         print(f"  {k}: {v}")
     backend = detect_backend()
     session = os.environ.get("XDG_SESSION_TYPE", "").lower()
+    if info.get("tray_hint"):
+        print(f"\n  ℹ Tray: {info['tray_hint']}")
     if backend.launch_only:
         if backend.name == "gnome" and session == "wayland":
             print(

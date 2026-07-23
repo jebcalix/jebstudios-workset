@@ -20,7 +20,7 @@ Elige o aplica un workset al iniciar sesión: aplicaciones, monitores, workspace
 | **x11** | sesión X11 + wmctrl | ✓ | ✓ | ✓ |
 | **generic** | fallback | ✓ | — | — |
 
-Ver [docs/backends.md](docs/backends.md), [docs/flatpak.md](docs/flatpak.md), [docs/omarchy.md](docs/omarchy.md).
+Ver [docs/backends.md](docs/backends.md), [docs/flatpak.md](docs/flatpak.md), [docs/omarchy.md](docs/omarchy.md), [docs/tray.md](docs/tray.md).
 
 ## Instalación (desarrollo)
 
@@ -62,7 +62,21 @@ workset-picker          # GUI GTK4 (o menú terminal)
 - **Perfiles** — aplicar, dry-run, editar, duplicar, eliminar, capturar, nuevo
 - **Editor** — nombre, condiciones, monitores y apps (exec, match, delays…)
 - **Estado** — doctor del entorno y última ejecución
-- **Ajustes** — picker al login y perfil por defecto
+- **Ajustes** — picker al login, perfil por defecto e icono de bandeja
+
+### Tray (`workset-tray`)
+
+Icono multi-DE (StatusNotifier/AppIndicator). Actívalo en **Ajustes**, o:
+
+```bash
+sudo pacman -S libayatana-appindicator
+# GNOME: + gnome-shell-extension-appindicator (activar extensión)
+# Hyprland/Sway: Waybar con módulo tray
+# XFCE/MATE/Cinnamon X11: panel + opcional snixembed
+workset-tray
+```
+
+Detalle por escritorio: [docs/tray.md](docs/tray.md).
 
 ## Autostart (picker post-login)
 

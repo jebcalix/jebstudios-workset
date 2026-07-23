@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from gi.repository import Adw, Gtk
 
+from workset.ui.icons import APP_ICON_NAME
 from workset.ui.pages.doctor import DoctorPage
 from workset.ui.pages.editor import EditorPage
 from workset.ui.pages.profiles import ProfilesPage
@@ -14,6 +15,7 @@ class WorksetWindow(Adw.ApplicationWindow):
     def __init__(self, app: Adw.Application) -> None:
         super().__init__(application=app, title="Workset")
         self.set_default_size(720, 560)
+        self.set_icon_name(APP_ICON_NAME)
 
         self._toast_overlay = Adw.ToastOverlay()
         self.set_content(self._toast_overlay)

@@ -1,11 +1,13 @@
 [Desktop Entry]
 Type=Application
-Name=Workset (login)
-Comment=Selector de perfil al iniciar sesión
-Exec=workset-picker --login
+Name=Workset Tray
+Comment=Icono de bandeja de Workset (multi-DE)
+Exec=workset-tray
 Icon=io.jebstudios.Workset
 Terminal=false
 Categories=Settings;Utility;
 StartupNotify=false
 NoDisplay=true
 X-GNOME-Autostart-enabled=true
+X-KDE-autostart-after=panel
+X-MATE-Autostart-enabled=true

@@ -65,10 +65,10 @@ class WorksetProfile(BaseModel):
 class GlobalConfig(BaseModel):
     default_profile: str | None = None
     show_picker_on_login: bool = True
+    show_tray_icon: bool = False
     last_profile: str | None = None
 
     model_config = {"extra": "ignore"}
-
 
 class WindowHandle(BaseModel):
     """Opaque window reference for backends."""

@@ -3,7 +3,7 @@
 import pytest
 from pydantic import ValidationError
 
-from workset.config.models import AppEntry, WindowState, WorksetProfile
+from workset.config.models import AppEntry, GlobalConfig, WindowState, WorksetProfile
 
 
 def test_valid_profile():
@@ -36,3 +36,9 @@ def test_exec_must_be_non_empty():
 def test_profile_requires_at_least_one_app():
     with pytest.raises(ValidationError):
         WorksetProfile.model_validate({"name": "Empty", "apps": []})
+
+
+def test_global_config_tray_default():
+    cfg = GlobalConfig()
+    assert cfg.show_tray_icon is False
+    assert cfg.show_picker_on_login is True

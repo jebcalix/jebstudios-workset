@@ -18,6 +18,11 @@ cp /usr/share/applications/jebstudios-workset-picker-autostart.desktop ~/.config
 
 # O aplicar perfil por defecto directamente
 workset apply dev
+
+# Icono de bandeja (Waybar)
+# Actívalo en Ajustes de la GUI, o:
+# cp /usr/share/applications/jebstudios-workset-tray.desktop ~/.config/autostart/
+workset-tray
 ```
 
 ## Ejemplo Hyprland

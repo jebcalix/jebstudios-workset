@@ -19,8 +19,9 @@ class GnomeBackend(Backend):
     name = "gnome"
 
     def is_available(self) -> bool:
-        desktop = os.environ.get("XDG_CURRENT_DESKTOP", "").upper()
-        return "GNOME" in desktop
+        from workset.desktop_env import is_pure_gnome
+
+        return is_pure_gnome()
 
     @property
     def launch_only(self) -> bool:
