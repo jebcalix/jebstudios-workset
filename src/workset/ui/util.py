@@ -7,7 +7,7 @@ import re
 import shlex
 import threading
 from collections.abc import Callable
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import TypeVar
 
@@ -38,7 +38,7 @@ def format_exec(cmd: list[str]) -> str:
 
 def write_last_run(message: str) -> None:
     STATE_DIR.mkdir(parents=True, exist_ok=True)
-    stamp = datetime.now(timezone.utc).astimezone().strftime("%Y-%m-%d %H:%M:%S")
+    stamp = datetime.now(UTC).astimezone().strftime("%Y-%m-%d %H:%M:%S")
     LAST_RUN_PATH.write_text(f"{stamp}\n{message}\n", encoding="utf-8")
 
 

@@ -4,7 +4,7 @@ pkgver=1.1.0
 pkgrel=1
 pkgdesc="Multi-DE desktop workset profiles for Arch Linux"
 arch=('any')
-url="https://github.com/jebstudios/jebstudios-workset"
+url="https://github.com/jebcalix/jebstudios-workset"
 license=('MIT')
 depends=(
   'python'

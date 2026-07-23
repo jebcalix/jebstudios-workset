@@ -25,7 +25,7 @@ Ver [docs/backends.md](docs/backends.md), [docs/flatpak.md](docs/flatpak.md), [d
 ## Instalación (desarrollo)
 
 ```bash
-git clone https://github.com/jebstudios/jebstudios-workset.git
+git clone https://github.com/jebcalix/jebstudios-workset.git
 cd jebstudios-workset
 python -m venv .venv
 source .venv/bin/activate

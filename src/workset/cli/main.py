@@ -9,7 +9,7 @@ import subprocess
 import sys
 
 from workset import __version__
-from workset.backends.registry import doctor_info, detect_backend
+from workset.backends.registry import detect_backend, doctor_info
 from workset.config.loader import (
     GLOBAL_CONFIG_PATH,
     PROFILES_DIR,

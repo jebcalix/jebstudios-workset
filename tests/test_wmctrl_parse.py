@@ -1,6 +1,10 @@
 """Tests for wmctrl parsing."""
 
-from workset.backends.wmctrl_parse import parse_wmctrl_line, parse_wmctrl_output, split_wm_class_field
+from workset.backends.wmctrl_parse import (
+    parse_wmctrl_line,
+    parse_wmctrl_output,
+    split_wm_class_field,
+)
 
 
 def test_split_doubled_reverse_dns():

@@ -2,7 +2,7 @@
 
 Aplicación multi-DE para Arch Linux que permite elegir un **workset** (perfil de escritorio) al iniciar sesión o bajo demanda.
 
-**Repositorio:** https://github.com/jebstudios/jebstudios-workset  
+**Repositorio:** https://github.com/jebcalix/jebstudios-workset  
 **Versión:** 1.1.0
 
 ---

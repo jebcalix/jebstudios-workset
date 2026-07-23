@@ -3,7 +3,7 @@
 import pytest
 from pydantic import ValidationError
 
-from workset.config.models import AppEntry, WorksetProfile, WindowState
+from workset.config.models import AppEntry, WindowState, WorksetProfile
 
 
 def test_valid_profile():
