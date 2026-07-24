@@ -38,15 +38,15 @@ optdepends=(
   'budgie-desktop: Budgie (x11 backend via wmctrl)'
 )
 source=("$pkgname-$pkgver.tar.gz::https://github.com/jebcalix/jebstudios-workset/archive/refs/tags/v$pkgver.tar.gz")
-sha256sums=('SKIP')
+sha256sums=('777a828cadea7d23e9f4d8fd58736c710574d0c4e4d4dcc59a8d990a4dcb7e63')
 
 build() {
-  cd "$pkgname-v$pkgver"
+  cd "$pkgname-$pkgver"
   python -m build --wheel --no-isolation
 }
 
 package() {
-  cd "$pkgname-v$pkgver"
+  cd "$pkgname-$pkgver"
   python -m installer --destdir="$pkgdir" dist/*.whl
   install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
   install -Dm644 README.md "$pkgdir/usr/share/doc/$pkgname/README.md"
