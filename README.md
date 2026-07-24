@@ -39,9 +39,14 @@ Dependencias de sistema para la GUI: `python-gobject`, `gtk4`, `libadwaita`.
 ## Instalación (AUR)
 
 ```bash
-makepkg -si
-# o cuando esté publicado:
 yay -S jebstudios-workset
+# o paru -S jebstudios-workset
+```
+
+Desde el repositorio (desarrollo local):
+
+```bash
+makepkg -si
 ```
 
 ## Uso

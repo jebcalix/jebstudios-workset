@@ -1,4 +1,4 @@
-# Maintainer: JebStudios
+# Maintainer: jebcalix <jebcalix@gmail.com>
 pkgname=jebstudios-workset
 pkgver=1.1.0
 pkgrel=1
@@ -18,35 +18,35 @@ makedepends=(
   'python-wheel'
 )
 optdepends=(
-  'python-gobject: GUI GTK (workset-picker)'
-  'gtk4: GUI GTK'
-  'libadwaita: GUI GTK'
-  'libayatana-appindicator: icono de bandeja (workset-tray, preferido)'
-  'libappindicator: icono de bandeja (fallback legacy)'
-  'gnome-shell-extension-appindicator: bandeja en GNOME Shell'
-  'snixembed: proxy SNI→XEmbed (XFCE/MATE/Cinnamon/i3 X11)'
-  'waybar: bandeja en Hyprland/Sway/Omarchy'
+  'python-gobject: GTK GUI (workset-picker)'
+  'gtk4: GTK GUI'
+  'libadwaita: GTK GUI'
+  'libayatana-appindicator: tray icon (workset-tray, preferred)'
+  'libappindicator: tray icon (legacy fallback)'
+  'gnome-shell-extension-appindicator: tray host on GNOME Shell'
+  'snixembed: SNI to XEmbed proxy (XFCE/MATE/Cinnamon/i3 X11)'
+  'waybar: tray host on Hyprland/Sway/Omarchy'
   'wmctrl: X11 / XWayland / Plasma / XFCE / Cinnamon / MATE'
   'hyprland: Hyprland backend'
   'sway: Sway backend'
   'i3-wm: i3 backend'
   'plasma-workspace: Plasma (KDE) System Tray SNI'
   'qt6-tools: KDE qdbus6 backend'
-  'xfce4-panel: bandeja XFCE'
-  'cinnamon: Cinnamon (backend x11 vía wmctrl)'
-  'mate-panel: bandeja MATE'
-  'budgie-desktop: Budgie (backend x11 vía wmctrl)'
+  'xfce4-panel: XFCE tray'
+  'cinnamon: Cinnamon (x11 backend via wmctrl)'
+  'mate-panel: MATE tray'
+  'budgie-desktop: Budgie (x11 backend via wmctrl)'
 )
-source=("$pkgname-$pkgver.tar.gz::file://$startdir")
+source=("$pkgname-$pkgver.tar.gz::https://github.com/jebcalix/jebstudios-workset/archive/refs/tags/v$pkgver.tar.gz")
 sha256sums=('SKIP')
 
 build() {
-  cd "$srcdir"
+  cd "$pkgname-v$pkgver"
   python -m build --wheel --no-isolation
 }
 
 package() {
-  cd "$srcdir"
+  cd "$pkgname-v$pkgver"
   python -m installer --destdir="$pkgdir" dist/*.whl
   install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
   install -Dm644 README.md "$pkgdir/usr/share/doc/$pkgname/README.md"
@@ -69,7 +69,7 @@ package() {
   install -Dm644 packaging/workset.bash \
     "$pkgdir/usr/share/bash-completion/completions/workset"
 
-  # Iconos hicolor
+  # hicolor icons
   while IFS= read -r -d '' icon; do
     rel="${icon#packaging/icons/}"
     install -Dm644 "$icon" "$pkgdir/usr/share/icons/$rel"
